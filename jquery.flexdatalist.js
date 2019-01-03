@@ -565,10 +565,15 @@ jQuery.fn.flexdatalist = function (_option, _value) {
                   var prop = valueProp[idx],
                     value = _this.isDefined(value, prop) ? value[prop] : value;
                   if ( _this.isDefined( item, prop ) ) {
-                    // Check if the item property is of type `number`
+                    // Check if the item property is of type `number` or `boolean`
                     var itemProperty = item[ prop ];
-                    if ( typeof itemProperty === "number" && parseFloat( value ) || value ===
-                      item[ prop ] ) {
+                    if ( typeof itemProperty === "number" ) {
+                      value = parseFloat( value );
+                    }
+                    if ( typeof itemProperty === "boolean" ) {
+                      value = value == "true";
+                    }
+                    if ( value === itemProperty ) {
                       found.push( item );
                     }
                   }
