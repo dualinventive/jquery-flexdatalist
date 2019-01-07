@@ -15,6 +15,45 @@
  * https://github.com/sergiodlopes/jquery-flexdatalist/
  *
  */
+jQuery.flexdatalist.defaults = {
+  url: null,
+  data: [],
+  params: {},
+  relatives: null,
+  chainedRelatives: false,
+  cache: true,
+  cacheLifetime: 60,
+  minLength: 2,
+  groupBy: false,
+  selectionRequired: false,
+  focusFirstResult: false,
+  textProperty: null,
+  valueProperty: null,
+  visibleProperties: [],
+  iconProperty: "thumb",
+  searchIn: [ "label" ],
+  searchContain: false,
+  searchEqual: false,
+  searchByWord: false,
+  searchDisabled: false,
+  searchDelay: 300,
+  normalizeString: null,
+  multiple: null,
+  disabled: null,
+  maxShownResults: 100,
+  removeOnBackspace: true,
+  noResultsText: "No results found for \"{keyword}\"",
+  toggleSelected: false,
+  allowDuplicateValues: false,
+  redoSearchOnFocus: true,
+  requestType: "get",
+  requestContentType: "x-www-form-urlencoded",
+  resultsProperty: "results",
+  keywordParamName: "keyword",
+  limitOfValues: 0,
+  valuesSeparator: ",",
+  debug: true
+};
 
 jQuery.fn.flexdatalist = function (_option, _value) {
   'use strict';
@@ -91,45 +130,7 @@ jQuery.fn.flexdatalist = function (_option, _value) {
     destroy(this);
   }
 
-  var _options = $.extend({
-    url: null,
-    data: [],
-    params: {},
-    relatives: null,
-    chainedRelatives: false,
-    cache: true,
-    cacheLifetime: 60,
-    minLength: 2,
-    groupBy: false,
-    selectionRequired: false,
-    focusFirstResult: false,
-    textProperty: null,
-    valueProperty: null,
-    visibleProperties: [],
-    iconProperty: 'thumb',
-    searchIn: ['label'],
-    searchContain: false,
-    searchEqual: false,
-    searchByWord: false,
-    searchDisabled: false,
-    searchDelay: 300,
-    normalizeString: null,
-    multiple: null,
-    disabled: null,
-    maxShownResults: 100,
-    removeOnBackspace: true,
-    noResultsText: 'No results found for "{keyword}"',
-    toggleSelected: false,
-    allowDuplicateValues: false,
-    redoSearchOnFocus: true,
-    requestType: 'get',
-    requestContentType: 'x-www-form-urlencoded',
-    resultsProperty: 'results',
-    keywordParamName: 'keyword',
-    limitOfValues: 0,
-    valuesSeparator: ',',
-    debug: true
-  }, _option);
+  var _options = $.extend( $.flexdatalist.defaults, _option);
 
   return this.each(function (id) {
     var $this = $(this),
