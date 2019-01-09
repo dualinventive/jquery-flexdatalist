@@ -13,6 +13,12 @@ Check out the [examples and documentation](http://projects.sergiodinislopes.pt/f
 - Regex in JS has bad support for special and accented characters, I'll try to make some improvements
 - Make it jQuery independent (this will take a while to make it to a release)
 
+## Additional options
+| Option  | Default | Purpose |
+| ------------- | ------------- |------------- |
+| global  | true  | Whether to trigger global Ajax event handlers for AJAX requests.|
+| loadingMessage  | "Fetching results for {keyword}"  | The proposed message while an AJAX request is being done.|
+
 ### License
 Flexdatalist is licensed under the [MIT license](http://opensource.org/licenses/MIT).
 Copyright (c) 2016 - 2018 [Sérgio Dinis Lopes](http://github.com/sergiodlopes)
