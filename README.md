@@ -26,7 +26,3 @@ Check out the [examples and documentation](http://projects.sergiodinislopes.pt/f
 ### License
 Flexdatalist is licensed under the [MIT license](http://opensource.org/licenses/MIT).
 Copyright (c) 2016 - 2019 [Sérgio Dinis Lopes](http://github.com/sergiodlopes)
-
-### License
-Flexdatalist is licensed under the [MIT license](http://opensource.org/licenses/MIT).
-Copyright (c) 2016 - 2018 [Sérgio Dinis Lopes](http://github.com/sergiodlopes)
