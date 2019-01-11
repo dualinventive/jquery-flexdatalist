@@ -14,14 +14,10 @@ Check out the [examples and documentation](http://projects.sergiodinislopes.pt/f
 - Make it jQuery independent (this will take a while to make it to a release)
 
 ## Additional options
-
-- global:
-	default: true 
-	purpose: Whether to trigger global Ajax event handlers for AJAX requests.
-	
-- loadingMessage: 
-	default: "Fetching results for {keyword}"
-	purpose: The proposed message while an AJAX request is being done.
+| Option  | Default | Purpose |
+| ------------- | ------------- |------------- |
+| global  | true  | Whether to trigger global Ajax event handlers for AJAX requests.|
+| loadingMessage  | "Fetching results for {keyword}"  | The proposed message while an AJAX request is being done.|
 
 ### License
 Flexdatalist is licensed under the [MIT license](http://opensource.org/licenses/MIT).
