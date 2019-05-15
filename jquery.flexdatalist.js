@@ -55,7 +55,8 @@ jQuery.flexdatalist = {
     valuesSeparator: ",",
     debug: true,
     loadingMessage: "Fetching results for \"{keyword}\"",
-    global: true
+    global: true,
+    resultContainer: "body"
   }
 };
 
@@ -1497,9 +1498,10 @@ jQuery.fn.flexdatalist = function( _option, _value ) {
         }
         var $container = $( "ul.flexdatalist-results" );
         if ( $container.length === 0 ) {
+          var options = _this.options.get();
           $container = $( "<ul>" )
             .addClass( "flexdatalist-results " )
-            .appendTo( "body" )
+            .appendTo( options.resultContainer )
             .attr( "id", $alias.attr( "id" ) + "-results" )
             .css( {
               "border-color": $target.css( "border-left-color" ),
@@ -1745,11 +1747,20 @@ jQuery.fn.flexdatalist = function( _option, _value ) {
       var $results = $( "ul.flexdatalist-results" ),
         $target = $results.data( "target" );
       if ( $results.length > 0 ) {
+        // Get the result parent + offset and target offset
+        var $result = $( $results[ 0 ] ),
+          $resultParent = $result.parent(),
+          resultParentOffSet = $resultParent.offset(),
+          targetOffSet = $target.offset();
+
         // Set some required CSS properties
         $results.css( {
           "width": $target.outerWidth() + "px",
-          "top": ( ( $target.offset().top + $target.outerHeight() ) ) + "px",
-          "left": $target.offset().left + "px"
+          "top": ( ( ( targetOffSet.top - resultParentOffSet.top + $resultParent.scrollTop() ) +
+            $target.outerHeight() ) ) +
+            "px",
+          "left": ( targetOffSet.left - resultParentOffSet.left + $resultParent.scrollLeft() ) +
+            "px"
         } );
       }
     };
